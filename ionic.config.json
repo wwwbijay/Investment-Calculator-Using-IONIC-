@@ -1,0 +1,7 @@
+{
+  "name": "investoMania",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
