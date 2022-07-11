@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      SPL
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-text class="intro">
+    <p>
+      SIP stands for a systematic investment plan. This is a system that allows investors to invest regularly in a scheme automatically or by themselves. 
+    </p>
+  </ion-text>
+  <div *ngIf="matureAmount > 0" class="result">
+    <ion-list-header>
+      <ion-label>Result</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Mature Amount</ion-label> <span class="result_entry">Rs. {{matureAmount}}</span>
+    </ion-item>
+    <ion-item>
+      <ion-label>Invested Amount</ion-label> <span class="result_entry">Rs. {{ investedAmount }}</span>
+    </ion-item>
+    <ion-item>
+    <ion-label>Profit</ion-label> <span class="result_entry">Rs. {{wealthGained}}</span>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>Absulute Return</ion-label> <span class="result_entry"> {{absReturn}}%</span>
+    </ion-item>
+  </div>
+  <form (ngSubmit)="splCalc()" [formGroup]="splCalcForm">
+    <ion-item>
+      <ion-input placeholder="Purchase Price" type="text" formControlName="purchaePrice" name="purchaePrice"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Quantity" type="text" formControlName="quantity" name="quantity"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Sell Price" formControlName="sellPrice" name="sellPrice"></ion-input>
+    </ion-item>
+    <div class="cta-item">
+      <ion-button type="submit" expand="full">Calculate</ion-button>
+    </div>
+  </form>
+ 
+</ion-content>

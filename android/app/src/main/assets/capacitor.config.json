@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "investoMania",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

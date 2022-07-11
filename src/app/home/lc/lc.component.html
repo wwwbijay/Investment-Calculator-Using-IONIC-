@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Lumpsum Calculator
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-text class="intro">
+    <p>
+      A lumpsum investment calculator helps estimate the returns* made by an investor on a lumpsum investment. Simply fill in the necessary details and the calculator will compute an approximation of the maturity value based on the data provided.
+    </p>
+  </ion-text>
+  <div *ngIf="matureAmount > 0" class="result">
+    <ion-list-header>
+      <ion-label>Result</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Mature Amount</ion-label> <span class="result_entry">Rs. {{matureAmount}}</span>
+    </ion-item>
+    <ion-item>
+      <ion-label>Invested Amount</ion-label> <span class="result_entry">Rs. {{ investedAmount }}</span>
+    </ion-item>
+    <ion-item>
+    <ion-label>Profit</ion-label> <span class="result_entry">Rs. {{wealthGained}}</span>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>Absulute Return</ion-label> <span class="result_entry"> {{absReturn}}%</span>
+    </ion-item>
+  </div>
+  <form (ngSubmit)="lcCalc()" [formGroup]="lcCalcForm">
+    <ion-item>
+      <ion-input placeholder="Investment Amount *" type="text" formControlName="amount" name="amount"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Expected rate of return (P.A) *" type="text" formControlName="rate" name="rate"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Tenure (in years) *(Up to 50 years)" formControlName="tenure" name="tenure"></ion-input>
+    </ion-item>
+    <div class="cta-item">
+      <ion-button type="submit" expand="full">Plan My Future Value</ion-button>
+    </div>
+  </form>
+ 
+</ion-content>

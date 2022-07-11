@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      CAGR
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-text class="intro">
+    <p>
+      Compound annual growth rate, or CAGR, is the mean annual growth rate of an investment over a specified period of time longer than one year. It represents one of the most accurate ways to calculate and determine returns for individual assets, investment portfolios, and anything that can rise or fall in value over time.
+    </p>
+  </ion-text>
+  <div *ngIf="cagr > 0" class="result">
+    <ion-list-header>
+      <ion-label>Result</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label>CAGR</ion-label> 
+      <span class="result_entry">{{cagr}} % </span>
+    </ion-item>
+    <ion-item>
+      <ion-label>Invested Amount</ion-label> 
+      <span class="result_entry">Rs. {{ investedAmount }} </span>
+    </ion-item>
+    <ion-item>
+      <ion-label>Sell Value</ion-label> 
+      <span class="result_entry">Rs. {{maturityAmount}} </span>
+    </ion-item>
+    <ion-item>
+    <ion-label>Profit</ion-label> 
+    <span class="result_entry"> Rs. {{ maturityAmount - investedAmount }} </span>
+    </ion-item>
+  
+  </div>
+  <form (ngSubmit)="cagrCalc()" [formGroup]="cagrCalcForm">
+    <ion-item>
+      <ion-input placeholder="Total Investment" type="number" formControlName="totalInvestment" name="totalInvestment"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Final Value" type="number" formControlName="finalValue" name="finalValue
+      "></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="number" placeholder="Duration of Investment" formControlName="duration" name="duration"></ion-input>
+    </ion-item>
+    <div class="cta-item">
+      <ion-button type="submit" expand="full">Calculate</ion-button>
+    </div>
+  </form>
+ 
+</ion-content>

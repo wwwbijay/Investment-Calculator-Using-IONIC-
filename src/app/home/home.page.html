@@ -1,20 +1,67 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      <img src="./assets/logo.png" >
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content>
+  <ion-grid id="dashboard-menus" class="page">
+    <ion-row>
+      <ion-col sizeLg="4" sizeMd="4" sizeXs="6" >
+        <div class="card" routerLink="/home/sip">
+          <div class="card-item">
+             <img src="./assets/calculator/1.png">
+          </div>
+          <div class="card-content">
+            <h3 class="card-content-title">
+              SIP
+              </h3>
+            <!-- <p>Systematic Investment Plan</p> -->
+          </div>
+        </div><!--.card ends-->
+      </ion-col>
+      <ion-col sizeLg="4" sizeMd="4" sizeXs="6">
+        <div>
+          <div class="card" routerLink="/home/spl">
+            <div class="card-item">
+              <img src="./assets/calculator/2.png">
+             
+            </div>
+            <div class="card-content">
+              <h3 class="card-content-title">SPL</h3>
+              <!-- <p>Stock Profit & Loss</p> -->
+            </div>
+          </div><!--.card ends-->
+        </div>
+      </ion-col>
+    
+      <ion-col sizeLg="4" sizeMd="4" sizeXs="6" >
+        <div class="card">
+          <div class="card-item" routerLink="/home/lc">
+            <img src="./assets/calculator/3.png">           
+          </div>
+          <div class="card-content">
+            <h3 class="card-content-title">LC</h3>
+            <!-- <p>Lumpsum Calculator</p> -->
+          </div>
+        </div><!--.card ends-->
+      </ion-col>
+      <ion-col sizeLg="4" sizeMd="4" sizeXs="6">
+        <div>
+          <div class="card" routerLink="/home/cagr">
+            <div class="card-item">
+              <img src="./assets/calculator/4.png">
+             
+            </div>
+            <div class="card-content">
+              <h3 class="card-content-title">CAGR</h3>
+              <!-- <p>Compounded Annual Growth Rate</p> -->
+            </div>
+          </div><!--.card ends-->
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

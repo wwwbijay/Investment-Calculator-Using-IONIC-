@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      SIP
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-text class="intro">
+    <p>
+      SIP stands for a systematic investment plan. This is a system that allows investors to invest regularly in a scheme automatically or by themselves. 
+    </p>
+  </ion-text>
+  <div *ngIf="finalAmount > 0" class="result">
+    <ion-list-header>
+      <ion-label>Result</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Maturity Amount</ion-label> <span class="result_entry">Rs. {{finalAmount}}</span>
+      </ion-item>
+    <ion-item>
+      <ion-label>Invested Amount</ion-label> <span class="result_entry">Rs. {{ investedAmount }}</span>
+    </ion-item>
+    <ion-item>
+    <ion-label>Est. Return</ion-label> <span class="result_entry">Rs. {{wealthGained}}</span>
+    </ion-item>
+    
+    
+  </div>
+
+  <form (ngSubmit)="sipCalc()" [formGroup]="sipCalcForm">
+    <ion-item>
+      <ion-select placeholder="Investment Period"  formControlName="period" #investmentPeriod >
+        <ion-select-option value="Annually">Annually</ion-select-option>
+        <ion-select-option value="Semi-Annually">Semi-Annually</ion-select-option>
+        <ion-select-option value="Quarterly">Quarterly</ion-select-option>
+        <ion-select-option value="Monthly">Monthly</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="{{investmentPeriod.value}} Investment" type="text" formControlName="investment" name="investment"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Expected Annual Returns (%)" type="text" formControlName="annualReturn" name="annualReturn"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Years" formControlName="years" name="years"></ion-input>
+    </ion-item>
+    <div class="cta-item">
+      <ion-button type="submit" expand="full">Calculate</ion-button>
+    </div>
+
+  </form>
+
+  
+
+ 
+</ion-content>
+
+
